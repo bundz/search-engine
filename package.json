@@ -4,7 +4,7 @@
   "description": "IA engine for searchs.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha spec/*.spec.js"
+    "test": "mocha spec/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
     "searchs",
     "noed"
   ],
-  "author": "Vitor Alano de Ataides",
+  "author": {
+    "name": "Vitor Alano de Ataides"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bundz/search-engine/issues"
@@ -24,5 +26,11 @@
   "dependencies": {
     "chai": "^2.1.2",
     "mocha": "^2.2.1"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "readmeFilename": "README",
+  "_id": "search-engine@1.0.0",
+  "_shasum": "30808039841a3d30562f17b06485ff62712e024e",
+  "_resolved": "git+https://github.com/bundz/search-engine.git#c27135da09b8f383f4bd63de412269eb0bc1fef1",
+  "_from": "search-engine@git+https://github.com/bundz/search-engine.git"
 }
