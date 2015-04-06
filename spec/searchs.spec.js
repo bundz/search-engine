@@ -236,6 +236,62 @@ describe("Search Engine", function () {
     
   });
   
+  describe("When doing A*", function () {
+    
+    var heuristic = function (state) {
+      
+      var value = 0;
+      var expectedX, expectedY;
+      
+      
+      for(var i = 0; i < state.puzzle.length; i++) {
+       
+        
+        for(var j = 0; j < state.puzzle.length; j++) {
+         
+          
+          if(state.puzzle[i][j] == null) {
+            expectedX = state.puzzle.length - 1;
+            expectedY = state.puzzle.length - 1;
+          } else {
+            expectedX = Math.floor((state.puzzle[i][j] - 1)/(state.puzzle.length));
+            expectedY = (state.puzzle[i][j] - 1) % state.puzzle.length;
+          }
+          
+          value += Math.abs(expectedX - i) + Math.abs(expectedY - j);
+          
+        }
+        
+      }
+      
+      return value;
+      
+    };
+    
+    var result = search.aStar(state, hash, heuristic);
+    
+    console.log(result.endState);
+    
+    it("should return an object with result, endState and initialState", function () {
+      
+      expect(result).to.have.property("result");
+      expect(result).to.have.property("endState");
+      expect(result).to.have.property("initialState");
+      
+    });
+    
+    it("endState should be equal 1 2 3 4 5 6 7 8", function () {
+      
+      expect(result.endState.puzzle.toString()).to.be.equals("1,2,3,4,5,6,7,8,");
+      
+    });
+    
+    it("result length should be below 25", function () {
+      expect(result.result.length).to.be.below(25);
+    });
+    
+  });
+  
 });
 
 
